@@ -1,20 +1,35 @@
-const red = document.querySelector(".red");
-const yellow = document.querySelector(".yellow");
-const green = document.querySelector(".green");
+const redLight = document.querySelector(".red");
+const yellowLight = document.querySelector(".yellow");
+const greenLight = document.querySelector(".green");
 
-function trafficLights(){
-    setTimeout(()=>{
-        red.style.backgroundColor = "red";
-        green.style.backgroundColor = "transparent";
-    },0)
-    setTimeout(()=>{
-        yellow.style.backgroundColor = "yellow";
-        red.style.backgroundColor = "transparent";
-    },10000)
-    setTimeout(()=>{
-        green.style.backgroundColor = "green";
-        yellow.style.backgroundColor = "transparent";
-    },12000)
+const redLightDuration = 0;
+const yellowLightDuration = 10000;
+const greenLightDuration = 12000;
+const totalDuration = 27000;
+
+let previousIntervalId = null;
+
+function trafficLights() {
+  setTimeout(() => {
+    redLight.style.backgroundColor = "red";
+    greenLight.style.backgroundColor = "";
+  }, redLightDuration);
+
+  setTimeout(() => {
+    yellowLight.style.backgroundColor = "yellow";
+    redLight.style.backgroundColor = "";
+  }, yellowLightDuration);
+
+  setTimeout(() => {
+    greenLight.style.backgroundColor = "green";
+    yellowLight.style.backgroundColor = "";
+  }, greenLightDuration);
+
+  previousIntervalId = setInterval(trafficLights, totalDuration);
+
+  if (previousIntervalId !== null) {
+    clearInterval(previousIntervalId);
+  }
 }
+
 trafficLights();
-setInterval(trafficLights,27000);
