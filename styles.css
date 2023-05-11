@@ -1,0 +1,21 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+    height: 500px;
+    border: 5px solid black;
+    border-radius: 8px;
+}
+.red,.yellow,.green{
+    border: 2px solid black;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
